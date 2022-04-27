@@ -12,8 +12,8 @@ Express 5 与 Express 4 的差异不是很大：对 API 的更改不像 3.0 到 
 
 要安装最新的 α 测试版以预览 Express 5，请在应用程序根目录中输入以下命令：
 
-```
-$ npm install express@5.0.0-alpha.2 --save
+```bash
+npm install express@5.0.0-alpha.2 --save
 ```
 
 随后，可以运行自动化测试以查看哪些地方发生故障，然后根据以下列出的更新修复问题。在解决测试故障问题之后，运行应用程序以查看发生哪些错误。如果应用程序使用任何不受支持的方法或属性，您马上就可以发现。
@@ -24,26 +24,26 @@ $ npm install express@5.0.0-alpha.2 --save
 
 **已移除的方法和属性**
 
-- [app.del()](http://expressjs.com/zh-cn/guide/migrating-5.html#app.del)
-- [app.param(fn)](http://expressjs.com/zh-cn/guide/migrating-5.html#app.param)
-- [复数的方法名称](http://expressjs.com/zh-cn/guide/migrating-5.html#plural)
-- [app.param(name, fn) 的 name 自变量中的前置冒号](http://expressjs.com/zh-cn/guide/migrating-5.html#leading)
-- [req.param(name)](http://expressjs.com/zh-cn/guide/migrating-5.html#req.param)
-- [res.json(obj, status)](http://expressjs.com/zh-cn/guide/migrating-5.html#res.json)
-- [res.jsonp(obj, status)](http://expressjs.com/zh-cn/guide/migrating-5.html#res.jsonp)
-- [res.send(body, status)](http://expressjs.com/zh-cn/guide/migrating-5.html#res.send.body)
-- [res.send(status)](http://expressjs.com/zh-cn/guide/migrating-5.html#res.send.status)
-- [res.sendfile()](http://expressjs.com/zh-cn/guide/migrating-5.html#res.sendfile)
+- [app.del()](#app.del)
+- [app.param(fn)](#app.param)
+- [复数的方法名称](#plural)
+- [app.param(name, fn) 的 name 自变量中的前置冒号](#leading)
+- [req.param(name)](#req.param)
+- [res.json(obj, status)](#res.json)
+- [res.jsonp(obj, status)](#res.jsonp)
+- [res.send(body, status)](#res.send.body)
+- [res.send(status)](#res.send.status)
+- [res.sendfile()](#res.sendfile)
 
 **已更改**
 
-- [app.router](http://expressjs.com/zh-cn/guide/migrating-5.html#app.router)
-- [req.host](http://expressjs.com/zh-cn/guide/migrating-5.html#req.host)
-- [req.query](http://expressjs.com/zh-cn/guide/migrating-5.html#req.query)
+- [app.router](#app.router)
+- [req.host](#req.host)
+- [req.query](#req.query)
 
 **改进**
 
-- [res.render()](http://expressjs.com/zh-cn/guide/migrating-5.html#res.render)
+- [res.render()](#res.render)
 
 ### 已移除的方法和属性
 

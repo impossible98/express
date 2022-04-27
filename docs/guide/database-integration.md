@@ -97,28 +97,28 @@ npm install nano
 
 ### 示例
 
-```javascaript
-const nano = require('nano')('http://localhost:5984')
-nano.db.create('books')
-const books = nano.db.use('books')
+```javascript
+const nano = require("nano")("http://localhost:5984");
+nano.db.create("books");
+const books = nano.db.use("books");
 
 // Insert a book document in the books database
-books.insert({ name: 'The Art of war' }, null, (err, body) => {
+books.insert({ name: "The Art of war" }, null, (err, body) => {
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
-    console.log(body)
+    console.log(body);
   }
-})
+});
 
 // Get a list of all books
 books.list((err, body) => {
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
-    console.log(body.rows)
+    console.log(body.rows);
   }
-})
+});
 ```
 
 ## LevelDB
