@@ -1,3 +1,7 @@
+---
+editLink: true
+---
+
 # 将模板引擎用于 Express
 
 在 Express 可以呈现模板文件之前，必须设置以下应用程序设置：
@@ -11,7 +15,7 @@
 npm install pug --save
 ```
 
-::: info
+::: tip
 与 Express 兼容的模板引擎（例如 Pug）导出名为 `__express(filePath, options, callback)` 的函数，该函数由 `res.render()` 函数调用以呈现模板代码。
 某些模板引擎并不遵循此约定。[Consolidate.js](https://www.npmjs.org/package/consolidate) 库通过映射所有流行的 Node.js 模板引擎来遵循此约定，因此可以在 Express 内无缝工作。
 :::
@@ -42,4 +46,5 @@ app.get("/", function(req, res) {
 
 向主页发出请求时，`index.pug` 文件将呈现为 HTML。
 
-要了解有关模板引擎在 Express 中如何工作的更多信息，请参阅：[“为 Express 开发模板引擎”](/advanced/developing-template-engines.html)。
+<!-- TODO: -->
+<!-- 要了解有关模板引擎在 Express 中如何工作的更多信息，请参阅：[“为 Express 开发模板引擎”](/advanced/developing-template-engines.html)。 -->

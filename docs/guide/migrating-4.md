@@ -1,3 +1,7 @@
+---
+editLink: true
+---
+
 # 迁移到 Express 4
 
 ## 概述

@@ -1,3 +1,7 @@
+---
+editLink: true
+---
+
 # 代理背后的 Express
 
 在代理背后运行 Express 应用程序时，可使用 [app.set()](/4x/api.html#app.set) 将应用程序变量 `trust proxy` 设置为下表中所列的某个值。

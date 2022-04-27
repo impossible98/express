@@ -1,3 +1,7 @@
+---
+editLink: true
+---
+
 # 调试 Express
 
 Express 在内部使用[调试](https://www.npmjs.com/package/debug)模块来记录关于路由匹配、使用的中间件函数、应用程序模式以及请求/响应循环流程的信息。
@@ -18,7 +22,7 @@ DEBUG=express:* node index.js
 set DEBUG=express:* & node index.js
 ```
 
-在 [Express 生成器](/starter/generator)所生成的缺省应用程序上运行此命令将显示以下输出：
+在 [Express 生成器](/guide/generator)所生成的缺省应用程序上运行此命令将显示以下输出：
 
 ```bash
 DEBUG=express:* node ./bin/www
