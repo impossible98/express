@@ -18,6 +18,7 @@ export default {
         { text: "路由", link: "/guide/routing" },
         { text: "编写中间件", link: "/guide/writing-middleware" },
         { text: "使用中间件", link: "/guide/using-middleware" },
+        { text: "使用模板引擎", link: "/guide/using-template-engines" },
         { text: "路由", link: "/guide/error-handling" },
       ],
     },
