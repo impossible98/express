@@ -2,25 +2,27 @@
 editLink: true
 ---
 
-## 数据库集成
+# 数据库集成
 
 要将数据库连接到 Express 应用程序，只需在该应用程序中为数据库装入相应的 Node.js 驱动程序。本文档简要说明如何在 Express 应用程序中为数据库系统添加和使用某些最流行的 Node.js 模块：
 
-- [Cassandra](http://expressjs.com/zh-cn/guide/database-integration.html#cassandra)
-- [Couchbase](http://expressjs.com/zh-cn/guide/database-integration.html#couchbase)
-- [CouchDB](http://expressjs.com/zh-cn/guide/database-integration.html#couchdb)
-- [LevelDB](http://expressjs.com/zh-cn/guide/database-integration.html#leveldb)
-- [MySQL](http://expressjs.com/zh-cn/guide/database-integration.html#mysql)
-- [MongoDB](http://expressjs.com/zh-cn/guide/database-integration.html#mongodb)
-- [Neo4j](http://expressjs.com/zh-cn/guide/database-integration.html#neo4j)
-- [Oracle](http://expressjs.com/zh-cn/guide/database-integration.html#oracle)
-- [PostgreSQL](http://expressjs.com/zh-cn/guide/database-integration.html#postgresql)
-- [Redis](http://expressjs.com/zh-cn/guide/database-integration.html#redis)
-- [SQL Server](http://expressjs.com/zh-cn/guide/database-integration.html#sql-server)
-- [SQLite](http://expressjs.com/zh-cn/guide/database-integration.html#sqlite)
-- [Elasticsearch](http://expressjs.com/zh-cn/guide/database-integration.html#elasticsearch)
+- [Cassandra](#cassandra)
+- [Couchbase](#couchbase)
+- [CouchDB](#couchdb)
+- [LevelDB](#leveldb)
+- [MySQL](#mysql)
+- [MongoDB](#mongodb)
+- [Neo4j](#neo4j)
+- [Oracle](#oracle)
+- [PostgreSQL](#postgresql)
+- [Redis](#redis)
+- [SQL Server](#sql-server)
+- [SQLite](#sqlite)
+- [Elasticsearch](#elasticsearch)
 
+::: tip
 这些数据库驱动程序是众多可用数据库驱动程序的一部分。要了解其他选项，请在 [npm](https://www.npmjs.com/) 站点上搜索。
+:::
 
 ## Cassandra
 
@@ -28,20 +30,20 @@ editLink: true
 
 ### 安装
 
-```
-$ npm install cassandra-driver
+```bash
+npm install cassandra-driver
 ```
 
 ### 示例
 
-```
-const cassandra = require('cassandra-driver')
-const client = new cassandra.Client({ contactPoints: ['localhost'] })
+```javascript
+const cassandra = require("cassandra-driver");
+const client = new cassandra.Client({ contactPoints: ["localhost"] });
 
-client.execute('select key from system.local', (err, result) => {
-  if (err) throw err
-  console.log(result.rows[0])
-})
+client.execute("select key from system.local", (err, result) => {
+  if (err) throw err;
+  console.log(result.rows[0]);
+});
 ```
 
 ## Couchbase
@@ -50,35 +52,37 @@ client.execute('select key from system.local', (err, result) => {
 
 ### 安装
 
-```
-$ npm install couchbase
+```bash
+npm install couchbase
 ```
 
 ### 示例
 
-```
-const couchbase = require('couchbase')
-const bucket = (new couchbase.Cluster('http://localhost:8091')).openBucket('bucketName')
+```javascript
+const couchbase = require("couchbase");
+const bucket = (new couchbase.Cluster("http://localhost:8091")).openBucket(
+  "bucketName",
+);
 
 // add a document to a bucket
-bucket.insert('document-key', { name: 'Matt', shoeSize: 13 }, (err, result) => {
+bucket.insert("document-key", { name: "Matt", shoeSize: 13 }, (err, result) => {
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
-    console.log(result)
+    console.log(result);
   }
-})
+});
 
 // get all documents with shoe size 13
-const n1ql = 'SELECT d.* FROM `bucketName` d WHERE shoeSize = $1'
-const query = N1qlQuery.fromString(n1ql)
+const n1ql = "SELECT d.* FROM `bucketName` d WHERE shoeSize = $1";
+const query = N1qlQuery.fromString(n1ql);
 bucket.query(query, [13], (err, result) => {
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
-    console.log(result)
+    console.log(result);
   }
-})
+});
 ```
 
 ## CouchDB
@@ -87,13 +91,13 @@ bucket.query(query, [13], (err, result) => {
 
 ### 安装
 
-```
-$ npm install nano
+```bash
+npm install nano
 ```
 
 ### 示例
 
-```
+```javascaript
 const nano = require('nano')('http://localhost:5984')
 nano.db.create('books')
 const books = nano.db.use('books')
@@ -123,25 +127,25 @@ books.list((err, body) => {
 
 ### 安装
 
-```
-$ npm install level levelup leveldown
+```bash
+npm install level levelup leveldown
 ```
 
 ### 示例
 
-```
-const levelup = require('levelup')
-const db = levelup('./mydb')
+```javascript
+const levelup = require("levelup");
+const db = levelup("./mydb");
 
-db.put('name', 'LevelUP', (err) => {
-  if (err) return console.log('Ooops!', err)
+db.put("name", "LevelUP", (err) => {
+  if (err) return console.log("Ooops!", err);
 
-  db.get('name', (err, value) => {
-    if (err) return console.log('Ooops!', err)
+  db.get("name", (err, value) => {
+    if (err) return console.log("Ooops!", err);
 
-    console.log(`name=${value}`)
-  })
-})
+    console.log(`name=${value}`);
+  });
+});
 ```
 
 ## MySQL
@@ -150,30 +154,30 @@ db.put('name', 'LevelUP', (err) => {
 
 ### 安装
 
-```
-$ npm install mysql
+```bash
+npm install mysql
 ```
 
 ### 示例
 
-```
-const mysql = require('mysql')
+```javascript
+const mysql = require("mysql");
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'dbuser',
-  password: 's3kreee7',
-  database: 'my_db'
-})
+  host: "localhost",
+  user: "dbuser",
+  password: "s3kreee7",
+  database: "my_db",
+});
 
-connection.connect()
+connection.connect();
 
-connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
-  if (err) throw err
+connection.query("SELECT 1 + 1 AS solution", (err, rows, fields) => {
+  if (err) throw err;
 
-  console.log('The solution is: ', rows[0].solution)
-})
+  console.log("The solution is: ", rows[0].solution);
+});
 
-connection.end()
+connection.end();
 ```
 
 ## MongoDB
@@ -182,42 +186,42 @@ connection.end()
 
 ### 安装
 
-```
-$ npm install mongodb
-```
-
-### 示例（v2.\*）
-
-```
-const MongoClient = require('mongodb').MongoClient
-
-MongoClient.connect('mongodb://localhost:27017/animals', (err, db) => {
-  if (err) throw err
-
-  db.collection('mammals').find().toArray((err, result) => {
-    if (err) throw err
-
-    console.log(result)
-  })
-})
+```bash
+npm install mongodb
 ```
 
-### 示例（v3.\*）
+### 示例（v2.*）
 
+```javascript
+const MongoClient = require("mongodb").MongoClient;
+
+MongoClient.connect("mongodb://localhost:27017/animals", (err, db) => {
+  if (err) throw err;
+
+  db.collection("mammals").find().toArray((err, result) => {
+    if (err) throw err;
+
+    console.log(result);
+  });
+});
 ```
-const MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect('mongodb://localhost:27017/animals', (err, client) => {
-  if (err) throw err
+### 示例（v3.*）
 
-  const db = client.db('animals')
+```javascript
+const MongoClient = require("mongodb").MongoClient;
 
-  db.collection('mammals').find().toArray((err, result) => {
-    if (err) throw err
+MongoClient.connect("mongodb://localhost:27017/animals", (err, client) => {
+  if (err) throw err;
 
-    console.log(result)
-  })
-})
+  const db = client.db("animals");
+
+  db.collection("mammals").find().toArray((err, result) => {
+    if (err) throw err;
+
+    console.log(result);
+  });
+});
 ```
 
 如果您需要 MongoDB 的对象模型驱动程序，请查看 [Mongoose](https://github.com/LearnBoost/mongoose)。
@@ -228,23 +232,23 @@ MongoClient.connect('mongodb://localhost:27017/animals', (err, client) => {
 
 ### 安装
 
-```
-$ npm install apoc
+```bash
+npm install apoc
 ```
 
 ### 示例
 
-```
-const apoc = require('apoc')
+```javascript
+const apoc = require("apoc");
 
-apoc.query('match (n) return n').exec().then(
+apoc.query("match (n) return n").exec().then(
   (response) => {
-    console.log(response)
+    console.log(response);
   },
   (fail) => {
-    console.log(fail)
-  }
-)
+    console.log(fail);
+  },
+);
 ```
 
 ## Oracle
@@ -255,42 +259,42 @@ apoc.query('match (n) return n').exec().then(
 
 注意: [See installation prerequisites](https://github.com/oracle/node-oracledb#-installation).
 
-```
-$ npm install oracledb
+```bash
+npm install oracledb
 ```
 
 ### 示例
 
-```
-const oracledb = require('oracledb')
+```javascript
+const oracledb = require("oracledb");
 const config = {
-  user: '<your db user>',
-  password: '<your db password>',
-  connectString: 'localhost:1521/orcl'
-}
+  user: "<your db user>",
+  password: "<your db password>",
+  connectString: "localhost:1521/orcl",
+};
 
-async function getEmployee (empId) {
-  let conn
+async function getEmployee(empId) {
+  let conn;
 
   try {
-    conn = await oracledb.getConnection(config)
+    conn = await oracledb.getConnection(config);
 
     const result = await conn.execute(
-      'select * from employees where employee_id = :id',
-      [empId]
-    )
+      "select * from employees where employee_id = :id",
+      [empId],
+    );
 
-    console.log(result.rows[0])
+    console.log(result.rows[0]);
   } catch (err) {
-    console.log('Ouch!', err)
+    console.log("Ouch!", err);
   } finally {
     if (conn) { // conn assignment worked, need to close
-      await conn.close()
+      await conn.close();
     }
   }
 }
 
-getEmployee(101)
+getEmployee(101);
 ```
 
 ## PostgreSQL
@@ -299,23 +303,23 @@ getEmployee(101)
 
 ### 安装
 
-```
-$ npm install pg-promise
+```bash
+npm install pg-promise
 ```
 
 ### 示例
 
-```
-const pgp = require('pg-promise')(/* options */)
-const db = pgp('postgres://username:password@host:port/database')
+```javascript
+const pgp = require("pg-promise")(); /* options */
+const db = pgp("postgres://username:password@host:port/database");
 
-db.one('SELECT $1 AS value', 123)
+db.one("SELECT $1 AS value", 123)
   .then((data) => {
-    console.log('DATA:', data.value)
+    console.log("DATA:", data.value);
   })
   .catch((error) => {
-    console.log('ERROR:', error)
-  })
+    console.log("ERROR:", error);
+  });
 ```
 
 ## Redis
@@ -324,33 +328,33 @@ db.one('SELECT $1 AS value', 123)
 
 ### 安装
 
-```
-$ npm install redis
+```bash
+npm install redis
 ```
 
 ### 示例
 
-```
-const redis = require('redis')
-const client = redis.createClient()
+```javascript
+const redis = require("redis");
+const client = redis.createClient();
 
-client.on('error', (err) => {
-  console.log(`Error ${err}`)
-})
+client.on("error", (err) => {
+  console.log(`Error ${err}`);
+});
 
-client.set('string key', 'string val', redis.print)
-client.hset('hash key', 'hashtest 1', 'some value', redis.print)
-client.hset(['hash key', 'hashtest 2', 'some other value'], redis.print)
+client.set("string key", "string val", redis.print);
+client.hset("hash key", "hashtest 1", "some value", redis.print);
+client.hset(["hash key", "hashtest 2", "some other value"], redis.print);
 
-client.hkeys('hash key', (err, replies) => {
-  console.log(`${replies.length} replies:`)
+client.hkeys("hash key", (err, replies) => {
+  console.log(`${replies.length} replies:`);
 
   replies.forEach((reply, i) => {
-    console.log(`    ${i}: ${reply}`)
-  })
+    console.log(`    ${i}: ${reply}`);
+  });
 
-  client.quit()
-})
+  client.quit();
+});
 ```
 
 ## SQL Server
@@ -359,58 +363,58 @@ client.hkeys('hash key', (err, replies) => {
 
 ### 安装
 
-```
-$ npm install tedious
+```bash
+npm install tedious
 ```
 
 ### 示例
 
-```
-const Connection = require('tedious').Connection
-const Request = require('tedious').Request
+```javascript
+const Connection = require("tedious").Connection;
+const Request = require("tedious").Request;
 
 const config = {
-  server: 'localhost',
+  server: "localhost",
   authentication: {
-    type: 'default',
+    type: "default",
     options: {
-      userName: 'your_username', // update me
-      password: 'your_password' // update me
-    }
-  }
-}
+      userName: "your_username", // update me
+      password: "your_password", // update me
+    },
+  },
+};
 
-const connection = new Connection(config)
+const connection = new Connection(config);
 
-connection.on('connect', (err) => {
+connection.on("connect", (err) => {
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
-    executeStatement()
+    executeStatement();
   }
-})
+});
 
-function executeStatement () {
+function executeStatement() {
   request = new Request("select 123, 'hello world'", (err, rowCount) => {
     if (err) {
-      console.log(err)
+      console.log(err);
     } else {
-      console.log(`${rowCount} rows`)
+      console.log(`${rowCount} rows`);
     }
-    connection.close()
-  })
+    connection.close();
+  });
 
-  request.on('row', (columns) => {
+  request.on("row", (columns) => {
     columns.forEach((column) => {
       if (column.value === null) {
-        console.log('NULL')
+        console.log("NULL");
       } else {
-        console.log(column.value)
+        console.log(column.value);
       }
-    })
-  })
+    });
+  });
 
-  connection.execSql(request)
+  connection.execSql(request);
 }
 ```
 
@@ -420,32 +424,32 @@ function executeStatement () {
 
 ### 安装
 
-```
-$ npm install sqlite3
+```bash
+npm install sqlite3
 ```
 
 ### 示例
 
-```
-const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database(':memory:')
+```javascript
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database(":memory:");
 
 db.serialize(() => {
-  db.run('CREATE TABLE lorem (info TEXT)')
-  const stmt = db.prepare('INSERT INTO lorem VALUES (?)')
+  db.run("CREATE TABLE lorem (info TEXT)");
+  const stmt = db.prepare("INSERT INTO lorem VALUES (?)");
 
   for (let i = 0; i < 10; i++) {
-    stmt.run(`Ipsum ${i}`)
+    stmt.run(`Ipsum ${i}`);
   }
 
-  stmt.finalize()
+  stmt.finalize();
 
-  db.each('SELECT rowid AS id, info FROM lorem', (err, row) => {
-    console.log(`${row.id}: ${row.info}`)
-  })
-})
+  db.each("SELECT rowid AS id, info FROM lorem", (err, row) => {
+    console.log(`${row.id}: ${row.info}`);
+  });
+});
 
-db.close()
+db.close();
 ```
 
 ## ElasticSearch
@@ -454,13 +458,13 @@ db.close()
 
 ### 安装
 
-```
-$ npm install elasticsearch
+```bash
+npm install elasticsearch
 ```
 
 ### 示例
 
-```
+```javascript
 const elasticsearch = require('elasticsearch')
 const client = elasticsearch.Client({
   host: 'localhost:9200'
