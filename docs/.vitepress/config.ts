@@ -11,9 +11,15 @@ export default defineConfig({
         link: "/guide/installing",
         activeMatch: "^/guide/",
       },
+      {
+        text: "API 参考",
+        link: "/api/4x",
+        activeMatch: "^/api/",
+      },
     ],
     sidebar: {
       "/guide/": getGuideSidebar(),
+      "/api/": getApiSidebar(),
     },
   },
 });
@@ -49,3 +55,9 @@ function getGuideSidebar() {
   ];
 }
 
+function getApiSidebar() {
+  return [
+    { text: "4x", link: "/api/4x" },
+    { text: "3x", link: "/api/3x" },
+  ];
+}
