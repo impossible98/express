@@ -1,7 +1,11 @@
+---
+editLink: true
+---
+
 # 路由
 
 *路由*表示应用程序端点 (URI) 的定义以及端点响应客户机请求的方式。
-有关路由的简介，请参阅[基本路由](/starter/basic-routing)。
+有关路由的简介，请参阅[基本路由](/guide/basic-routing)。
 
 我们所使用的 app 与 HTTP 方法相对应的 Express 对象方法来定义路由，如 `app.get()` 用于处理 GET 请求，而 `app.post` 则用于处理 POST 请求。
 
@@ -218,22 +222,22 @@ app.get("/example/d", [cb0, cb1], function(req, res, next) {
 
 下表中响应对象 (`res`) 的方法可以向客户机发送响应，并终止请求/响应循环。如果没有从路由处理程序调用其中任何方法，客户机请求将保持挂起状态。
 
-| 方法                                              | 描述                       |
-| ----------------------------------------------- | ------------------------ |
-| [res.download()](/4x/api.html#res.download)     | 提示将要下载文件。                |
-| [res.end()](/4x/api.html#res.end)               | 结束响应进程。                  |
-| [res.json()](/4x/api.html#res.json)             | 发送 JSON 响应。              |
-| [res.jsonp()](/4x/api.html#res.jsonp)           | 在 JSONP 的支持下发送 JSON 响应。  |
-| [res.redirect()](/4x/api.html#res.redirect)     | 重定向请求。                   |
-| [res.render()](/4x/api.html#res.render)         | 呈现视图模板。                  |
-| [res.send()](/4x/api.html#res.send)             | 发送各种类型的响应。               |
-| [res.sendFile()](/4x/api.html#res.sendFile)     | 以八位元流形式发送文件。             |
-| [res.sendStatus()](/4x/api.html#res.sendStatus) | 设置响应状态码并以响应主体形式发送其字符串表示。 |
+| 方法                                         | 描述                       |
+| ------------------------------------------ | ------------------------ |
+| [res.download()](/api/4x#res.download)     | 提示将要下载文件。                |
+| [res.end()](/api/4x#res.end)               | 结束响应进程。                  |
+| [res.json()](/api/4x#res.json)             | 发送 JSON 响应。              |
+| [res.jsonp()](/api/4x#res.jsonp)           | 在 JSONP 的支持下发送 JSON 响应。  |
+| [res.redirect()](/api/4x#res.redirect)     | 重定向请求。                   |
+| [res.render()](/api/4x#res.render)         | 呈现视图模板。                  |
+| [res.send()](/api/4x#res.send)             | 发送各种类型的响应。               |
+| [res.sendFile()](/api/4x#res.sendFile)     | 以八位元流形式发送文件。             |
+| [res.sendStatus()](/api/4x#res.sendStatus) | 设置响应状态码并以响应主体形式发送其字符串表示。 |
 
 ## app.route()
 
 您可以使用 `app.route()` 为路由路径创建可链接的路由处理程序。
-因为在单一位置指定路径，所以可以减少冗余和输入错误。有关路由的更多信息，请参阅 [Router() 文档](/4x/api.html#router)。
+因为在单一位置指定路径，所以可以减少冗余和输入错误。有关路由的更多信息，请参阅 [Router() 文档](/api/4x#router)。
 
 以下是使用 `app.route()` 定义的链式路由处理程序的示例。
 
