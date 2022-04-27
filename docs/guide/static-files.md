@@ -1,3 +1,7 @@
+---
+editLink: true
+---
+
 # 在 Express 中提供静态文件
 
 为了提供诸如图像、CSS 文件和 JavaScript 文件之类的静态文件，请使用 Express 中的 `express.static` 内置中间件函数。
@@ -31,7 +35,7 @@ app.use(express.static("files"));
 
 Express 以您使用 `express.static` 中间件函数设置静态目录的顺序来查找文件。
 
-要为 `express.static` 函数提供的文件创建虚拟路径前缀（路径并不实际存在于文件系统中），请为静态目录[指定安装路径](/4x/api#app.use)，如下所示：
+要为 `express.static` 函数提供的文件创建虚拟路径前缀（路径并不实际存在于文件系统中），请为静态目录[指定安装路径](/api/4x#app.use)，如下所示：
 
 ```javascript
 app.use("/static", express.static("public"));

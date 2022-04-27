@@ -1,3 +1,7 @@
+---
+editLink: true
+---
+
 # 基本路由
 
 *路由*用于确定应用程序如何响应对特定端点的客户机请求，包含一个 URI（或路径）和一个特定的 HTTP 请求方法（GET、POST 等）。
@@ -17,8 +21,8 @@ app.METHOD(PATH, HANDLER);
 - `PATH` 是服务器上的路径。
 - `HANDLER` 是在路由匹配时执行的函数。
 
-::: info
-本教程假定创建了名为 `app` 的 `express` 实例且服务器正在运行。如果您对创建和启动应用程序并不熟悉，请参阅 [Hello world 示例](/starter/hello-world)。
+::: tip
+本教程假定创建了名为 `app` 的 `express` 实例且服务器正在运行。如果您对创建和启动应用程序并不熟悉，请参阅 [Hello world 示例](/guide/hello-world)。
 :::
 
 以下示例演示了如何定义简单路由。
