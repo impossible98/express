@@ -1,5 +1,7 @@
 export default {
+  lang: 'zh-CN',
   title: "Express",
+  lastUpdated: true,
   themeConfig: {
     nav: [
       { text: "入门", link: "/starter/installing" },
