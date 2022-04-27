@@ -7,8 +7,9 @@ export default {
     sidebar: {
       "/starter/": [
         { text: "安装", link: "/starter/installing" },
-        { text: "Hello world 示例", link: "/starter/hello-world" },
-        { text: "Express 应用程序生成器", link: "/starter/generator" },
+        { text: "Hello world", link: "/starter/hello-world" },
+        { text: "Express 生成器", link: "/starter/generator" },
+        { text: "基本路由", link: "/starter/basic-routing" },
       ],
     },
   },
