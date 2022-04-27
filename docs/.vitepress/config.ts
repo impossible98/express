@@ -1,32 +1,33 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  lang: 'zh-CN',
+  lang: "zh-CN",
   title: "Express",
   lastUpdated: true,
   themeConfig: {
     nav: [
-      { text: "文档", link: "/starter/installing" ,
-      activeMatch: '^/starter/'},
-      { text: "API 参考", link: "/4x/api" },
+      {
+        text: "文档",
+        link: "/starter/installing",
+        activeMatch: "^/starter/",
+      },
+      {
+        text: "API 参考",
+        link: "/4x/api",
+        activeMatch: "^/4x/",
+      },
     ],
     sidebar: {
       "/starter/": getStarterSidebar(),
-      "/4x/": [
-        { text: "4.x API", link: "/4x/api" },
-        { text: "3.x API", link: "/3x/api" },
-      ],
-      "/3x/": [
-        { text: "3.x API", link: "/3x/api" },
-      ],
+      "/4x/": get4xSidebar(),
     },
   },
-})
+});
 
 function getStarterSidebar() {
   return [
     {
-      text: '入门',
+      text: "入门",
       children: [
         { text: "安装", link: "/starter/installing" },
         { text: "Hello world", link: "/starter/hello-world" },
@@ -34,10 +35,10 @@ function getStarterSidebar() {
         { text: "基本路由", link: "/starter/basic-routing" },
         { text: "静态文件", link: "/starter/static-files" },
         { text: "常见问题及解答", link: "/starter/faq" },
-      ]
+      ],
     },
     {
-      text: '指南',
+      text: "指南",
       children: [
         { text: "路由", link: "/guide/routing" },
         { text: "编写中间件", link: "/guide/writing-middleware" },
@@ -49,7 +50,24 @@ function getStarterSidebar() {
         { text: "迁移到 Express 4", link: "/guide/migrating-4" },
         { text: "迁移到 Express 5", link: "/guide/migrating-5" },
         { text: "数据库集成", link: "/guide/database-integration" },
-      ]
-    }
-  ]
+      ],
+    },
+  ];
+}
+
+function get4xSidebar() {
+  return [
+    {
+      text: "4x",
+      children: [
+        { text: "4x", link: "/4x/api" },
+      ],
+    },
+    {
+      text: "3x",
+      children: [
+        { text: "3x", link: "/3x/api" },
+      ],
+    },
+  ];
 }
