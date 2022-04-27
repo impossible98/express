@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "docs:dev": "vitepress dev docs",
+        "docs:build": "vitepress build docs",
+        "docs:serve": "vitepress serve docs",
+        "fmt": "dprint fmt"
+    },
+    "devDependencies": {
+        "dprint": "^0.27.0",
+        "vitepress": "^0.22.3"
+    }
+}
