@@ -35,7 +35,7 @@ npm install express
 npm install express --no-save
 ```
 
-::: tip
+::: info
 默认情况下，版本为 npm 5.0+ 的 npm install 将模块添加到 `package.json` 文件中的 `dependencies` 列表；对于较早版本的 npm，必须显式指定 `--save` 选项。
 今后运行 `app` 目录中的 `npm install` 将自动安装依赖项列表中的模块。
 :::
