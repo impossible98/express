@@ -1,3 +1,7 @@
+---
+editLink: true
+---
+
 # Express 应用程序生成器
 
 可使用应用程序生成器工具 (`express-generator`) 快速创建应用程序框架。
