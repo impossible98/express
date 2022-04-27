@@ -465,25 +465,25 @@ npm install elasticsearch
 ### 示例
 
 ```javascript
-const elasticsearch = require('elasticsearch')
+const elasticsearch = require("elasticsearch");
 const client = elasticsearch.Client({
-  host: 'localhost:9200'
-})
+  host: "localhost:9200",
+});
 
 client.search({
-  index: 'books',
-  type: 'book',
+  index: "books",
+  type: "book",
   body: {
     query: {
       multi_match: {
-        query: 'express js',
-        fields: ['title', 'description']
-      }
-    }
-  }
+        query: "express js",
+        fields: ["title", "description"],
+      },
+    },
+  },
 }).then((response) => {
-  const hits = response.hits.hits
+  const hits = response.hits.hits;
 }, (error) => {
-  console.trace(error.message)
-})
+  console.trace(error.message);
+});
 ```
