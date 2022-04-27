@@ -4,6 +4,7 @@ export default {
     nav: [
       { text: "入门", link: "/starter/installing" },
       { text: "指南", link: "/guide/routing" },
+      { text: "API 参考", link: "/4x/api" },
     ],
     sidebar: {
       "/starter/": [
@@ -22,6 +23,16 @@ export default {
         { text: "错误处理", link: "/guide/error-handling" },
         { text: "调试", link: "/guide/debugging" },
         { text: "代理背后的 Express", link: "/guide/behind-proxies" },
+        { text: "迁移到 Express 4", link: "/guide/migrating-4" },
+        { text: "迁移到 Express 5", link: "/guide/migrating-5" },
+        { text: "数据库集成", link: "/guide/database-integration" },
+      ],
+      "/4x/": [
+        { text: "4.x API", link: "/4x/api" },
+        { text: "3.x API", link: "/3x/api" },
+      ],
+      "/3x/": [
+        { text: "3.x API", link: "/3x/api" },
       ],
     },
   },
