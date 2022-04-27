@@ -1,3 +1,8 @@
+---
+title: 安装
+editLink: true
+---
+
 # 安装
 
 假设您已经安装了 [Node.js](https://nodejs.org/)，创建目录以保存应用程序，并将其设置为工作目录。
