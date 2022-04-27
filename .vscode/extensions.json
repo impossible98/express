@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "bungcip.better-toml",
-        "EditorConfig.EditorConfig"
+        "editorconfig.editorconfig",
+        "wayou.vscode-todo-highlight"
     ]
 }
